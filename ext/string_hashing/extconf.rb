@@ -37,12 +37,12 @@ if RUBY_PLATFORM.include?( 'darwin' )
   end
 end
 
-if find_header("gmp.h")
-  $stderr.puts "Configuring extensions"
-  dir_config(extension_name)
-  create_makefile(extension_name)
-else
-  $stderr.puts "Skipping building of C extension"
+#if find_header("gmp.h")
+#  $stderr.puts "Configuring extensions"
+#  dir_config(extension_name)
+#  create_makefile(extension_name)
+#else
+#  $stderr.puts "Skipping building of C extension"
   # creating foo Makefile to avoid building stuff
   File.open(File.join(File.dirname(__FILE__), "Makefile"), "w"){|f| f.write("all: \ninstall: \n")}
-end
+#end
