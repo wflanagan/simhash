@@ -1,7 +1,5 @@
 require 'rake/extensiontask'
 
-$LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
-
 include_files = ["README*", "LICENSE", "Rakefile", "init.rb", "{lib,rails,ext}/**/*"].map do |glob|
   Dir[glob]
 end.flatten
