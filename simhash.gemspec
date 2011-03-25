@@ -1,20 +1,13 @@
-require 'rake/extensiontask'
-
-include_files = ["README*", "LICENSE", "Rakefile", "init.rb", "{lib,rails,ext}/**/*"].map do |glob|
-  Dir[glob]
-end.flatten
-exclude_files = ["**/*.o", "**/*.bundle", "**/Makefile", "*.bundle" ].map do |glob|
-  Dir[glob]
-end.flatten
+require 'rubygems'
+require 'rake'
 
 spec = Gem::Specification.new do |s|
   s.name              = "simhash"
   s.version           = "0.2.3"
   s.author            = "Alex Gusev"
   s.email             = "alex.gusev@bookmate.ru"
-  s.homepage          = "http://github.com/bookmate/simhash"
+  s.homepage          = "http://github.com/wflanagan/simhash"
   s.rubyforge_project = "simhash"
-  s.description       = "Implementation of Charikar simhashes in Ruby"
   s.platform          = Gem::Platform::RUBY
   s.summary           = "Gives you possbility to convert string into simhashes to futher use: finding near-duplicates, similar strings, etc."
   s.files             = [
@@ -31,11 +24,14 @@ spec = Gem::Specification.new do |s|
                           "lib/simhash/stopwords/en.rb",
                           "lib/simhash/stopwords/ru.rb",
                           "test/helper.rb",
-                          "integer_test.rb",
-                          "simhash_test.rb",
-                          "string_test.rb" ]
+                          "test/integer_test.rb",
+                          "test/simhash_test.rb",
+                          "test/string_test.rb" ]
   s.require_paths      = ["lib"]
-  s.test_files        = Dir["test/**/test_*.rb"]
+  s.test_files        = ["test/helper.rb",
+                          "test/integer_test.rb",
+                          "test/simhash_test.rb",
+                          "test/string_test.rb" ]
   s.extensions        = ["ext/string_hashing/extconf.rb"] 
   
   if s.respond_to? :specification_version then
