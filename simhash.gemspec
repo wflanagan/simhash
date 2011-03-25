@@ -19,8 +19,24 @@ spec = Gem::Specification.new do |s|
   s.description       = "Implementation of Charikar simhashes in Ruby"
   s.platform          = Gem::Platform::RUBY
   s.summary           = "Gives you possbility to convert string into simhashes to futher use: finding near-duplicates, similar strings, etc."
-  s.files             = include_files - exclude_files
-  s.require_path      = "lib"
+  s.files             = [
+                          "simhash.gemspec",
+                          "README.rdoc",
+                          "Rakefile",
+                          "LICENSE",
+                          "ext/string_hashing/extconf.rb",
+                          "ext/string_hashing/string_hashing.c",
+                          "lib/integer.rb",
+                          "lib/simhash.rb",
+                          "lib/string.rb",
+                          "lib/simhash/stopwords.rb",
+                          "lib/simhash/stopwords/en.rb",
+                          "lib/simhash/stopwords/ru.rb",
+                          "test/helper.rb",
+                          "integer_test.rb",
+                          "simhash_test.rb",
+                          "string_test.rb" ]
+  s.require_paths      = ["lib"]
   s.test_files        = Dir["test/**/test_*.rb"]
   s.extensions        = ["ext/string_hashing/extconf.rb"] 
   
